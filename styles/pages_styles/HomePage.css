@@ -1,0 +1,93 @@
+/* width */
+#lastContainer::-webkit-scrollbar,
+#chatContainer::-webkit-scrollbar {
+  width: 10px;
+  background-color: #555;
+}
+
+/* Track */
+#lastContainer::-webkit-scrollbar-track,
+#chatContainer::-webkit-scrollbar-track {
+  background: #555;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Handle */
+#lastContainer::-webkit-scrollbar-thumb,
+#chatContainer::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Handle on hover */
+#lastContainer::-webkit-scrollbar-thumb:hover,
+#chatContainer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* style the liveChat */
+
+.modal-body {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: start;
+}
+
+#chatContainer {
+  margin-top: 20px;
+  padding: 10px;
+  padding-right: 100px;
+  border-radius: 6px;
+  height: 300px;
+  border: 1px solid #cccccc;
+  overflow-y: scroll;
+}
+
+#messageList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#messageList li {
+  margin-bottom: 10px;
+}
+
+#messageList li .message {
+  background-color: #ebebeb;
+  border-radius: 6px;
+  padding: 8px;
+  display: inline-block;
+}
+
+#messageList li .user {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#messageInput {
+  margin-top: 40px;
+  padding: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  width: 70%;
+  font-size: 16px;
+}
+
+#sendButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4caf50;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#sendButton:hover {
+  background-color: #45a049;
+}
