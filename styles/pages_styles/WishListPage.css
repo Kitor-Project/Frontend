@@ -1,0 +1,31 @@
+/* width */
+#wishListContainer::-webkit-scrollbar {
+  width: 10px;
+  background-color: #555;
+}
+
+/* Track */
+#wishListContainer::-webkit-scrollbar-track {
+  background: #555;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Handle */
+#wishListContainer::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Handle on hover */
+#wishListContainer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#empty {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
