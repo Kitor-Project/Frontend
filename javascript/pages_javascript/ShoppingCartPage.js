@@ -64,7 +64,6 @@ function addItemsToCartListContainer(headerImageSource, title, price, id) {
 /* start fill cart */
 function initCartContainer() {
   let games = localStorage.getItem("cart");
-  console.log(games);
   if (games == null || games == "") {
     $("#shoppingCartContainer").append(
       `<h1 class="text-center">Your cart is empty</h1>`
@@ -102,7 +101,6 @@ async function buyNow() {
     games: gameArray,
     orderNumber: 9,
   };
-  console.log("order: ", order);
   $.ajax({
     url: "http://localhost:3000/order/",
     method: "POST",
@@ -115,7 +113,6 @@ async function buyNow() {
       }, 5000);
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -145,11 +142,9 @@ function postToFacebook() {
     type: "POST",
     data: postData,
     success: function (response) {
-      console.log("Post successfully sent!");
       alert("Post successfully sent!");
     },
     error: function (xhr, status, error) {
-      console.log("Post request failed. Error:", error);
     },
   });
 }
@@ -188,7 +183,6 @@ function fetchGame(gameId, boolean) {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -204,7 +198,6 @@ function sendToCategoryPage(name) {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -216,24 +209,15 @@ async function getUserFromCartPage() {
     method: "GET",
     success: function (response) {
       userCartPage = response;
-      console.log("Response from userCartPage: ", response);
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
 }
 
 function sendToSearchPage() {
-  // let searchBarValue = $("#searchBar").val();
-  // if (searchBarValue == null || searchBarValue == "") {
-  //   window.location.href = "SearchPage.html";
-  // } else {
-  //   const encodedSearch = encodeURIComponent(JSON.stringify(searchBarValue));
-  //   window.location.href = "SearchPage.html?game=" + encodedSearch;
-  // }
   window.location.href = "SearchPage.html";
 }
 

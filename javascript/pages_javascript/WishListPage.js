@@ -89,10 +89,7 @@ async function addToCart(id) {
 
 /* start remove from wish list */
 async function removeFromWishList(gameId) {
-  console.log("remove from wish list : ", gameId);
-  console.log("User: ", userWishListPage);
   let wishListPage = await getWishList(userWishListPage.wishList[0]);
-  console.log("Wishlistpage: ", wishListPage);
 
   for (let i = 0; i < wishListPage.games.length; i++) {
     if (wishListPage.games[i] == gameId) {
@@ -101,7 +98,6 @@ async function removeFromWishList(gameId) {
     }
   }
 
-  console.log("WishlistpageAFTER: ", wishListPage);
 
   let finishWishList = "";
   for (let i = 0; i < wishListPage.games.length; i++) {
@@ -111,7 +107,6 @@ async function removeFromWishList(gameId) {
       finishWishList += wishListPage.games[i] + ",";
     }
   }
-  console.log("finishWishList: ", finishWishList);
 
   let test = {
     id: wishListPage._id,
@@ -125,7 +120,6 @@ async function removeFromWishList(gameId) {
 }
 
 async function updateWishList(id, wishListPage) {
-  console.log("update wish list : ", id, wishListPage);
   $.ajax({
     url: "http://localhost:3000/wishList/",
     method: "PATCH",
@@ -138,7 +132,6 @@ async function updateWishList(id, wishListPage) {
       if (xhr.status == 400) {
         alert("Something went wrong");
       }
-      console.log(xhr);
     },
   });
 }
@@ -160,7 +153,6 @@ async function getWishList(id) {
           alert("WishList not fonud");
           return;
         }
-        console.log(xhr);
         reject(xhr); // Reject the promise with the error object
       },
     });
@@ -196,7 +188,6 @@ function fetchGame(gameId, boolean) {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -225,7 +216,6 @@ function getUserFromWishlistPage() {
               // Perform any additional actions with the response data here
             },
             error: function (xhr) {
-              console.log(xhr.responseText);
               // Handle the error
             },
           });
@@ -235,7 +225,6 @@ function getUserFromWishlistPage() {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -251,20 +240,12 @@ function sendToCategoryPage(name) {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
 }
 
 function sendToSearchPage() {
-  // let searchBarValue = $("#searchBar").val();
-  // if (searchBarValue == null || searchBarValue == "") {
-  //   window.location.href = "SearchPage.html";
-  // } else {
-  //   const encodedSearch = encodeURIComponent(JSON.stringify(searchBarValue));
-  //   window.location.href = "SearchPage.html?game=" + encodedSearch;
-  // }
   window.location.href = "SearchPage.html";
 }
 

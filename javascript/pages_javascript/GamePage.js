@@ -6,7 +6,6 @@ const encodedGame = params.get("game");
 const game = JSON.parse(decodeURIComponent(encodedGame));
 let userGamePage = JSON.parse(localStorage.getItem("user"));
 // Use the game object for further processing
-console.log("Game: ", game);
 
 // add the main header to the gamePage
 $("#header").append(`${game.name}`);
@@ -239,7 +238,6 @@ async function addToWishList(id) {
     return;
   }
   let wishListObject = await getWishList(newUserTest.wishList[0]);
-  console.log(newUserTest.wishList[0], wishListObject, id);
   updateWishList(newUserTest.wishList[0], wishListObject, id);
 }
 
@@ -258,7 +256,6 @@ async function createWishList(id, gameId) {
       if (xhr.status == 400) {
         alert("Game already in wishlist");
       }
-      console.log(xhr);
     },
   });
 }
@@ -278,7 +275,6 @@ async function updateWishList(id, wishListObject, newGameId) {
       if (xhr.status == 400) {
         alert("Game already in wishlist");
       }
-      console.log(xhr);
     },
   });
 }
@@ -300,7 +296,6 @@ function getWishList(id) {
           alert("WishList not fonud");
           return;
         }
-        console.log(xhr);
         reject(xhr); // Reject the promise with the error object
       },
     });
@@ -316,7 +311,6 @@ async function getUserGamePage() {
         resolve(response); // Resolve the promise with the response
       },
       error: function (xhr) {
-        console.log(xhr.responseText);
         reject(xhr.responseText); // Reject the promise with the error message
       },
     });
@@ -350,20 +344,12 @@ function sendToCategoryPage(name) {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
 }
 
 function sendToSearchPage() {
-  // let searchBarValue = $("#searchBar").val();
-  // if (searchBarValue == null || searchBarValue == "") {
-  //   window.location.href = "SearchPage.html";
-  // } else {
-  //   const encodedSearch = encodeURIComponent(JSON.stringify(searchBarValue));
-  //   window.location.href = "SearchPage.html?game=" + encodedSearch;
-  // }
   window.location.href = "SearchPage.html";
 }
 

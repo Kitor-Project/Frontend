@@ -1,11 +1,4 @@
 function sendToSearchPage() {
-  // let searchBarValue = $("#searchBar").val();
-  // if (searchBarValue == null || searchBarValue == "") {
-  //   window.location.href = "SearchPage.html";
-  // } else {
-  //   const encodedSearch = encodeURIComponent(JSON.stringify(searchBarValue));
-  //   window.location.href = "SearchPage.html?game=" + encodedSearch;
-  // }
   window.location.href = "SearchPage.html";
 }
 
@@ -27,7 +20,6 @@ function getCategoryByName(name) {
     },
     error: function (xhr, status, error) {
       // Handle the error
-      console.log("AJAX request failed: " + error);
     },
   });
 }
@@ -326,14 +318,11 @@ function fetchGame(gameId) {
     url: "http://localhost:3000/game/" + gameId,
     method: "GET",
     success: function (response) {
-      console.log(response);
-      //   window.location.href = "http://localhost:3000/game/" + gameId;
       const encodedGame = encodeURIComponent(JSON.stringify(response));
       window.location.href = "GamePage.html?game=" + encodedGame;
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -345,14 +334,12 @@ function fetchGames() {
     type: "GET",
     success: function (response) {
       // Handle the successful response
-      console.log(response);
       return response.map((game) => {
         addItemList(game.backGroundImage, game.name, game.price, game._id);
       });
     },
     error: function (xhr, status, error) {
       // Handle the error
-      console.log("AJAX request failed: " + error);
     },
   });
 }
@@ -367,7 +354,6 @@ function sendToCategoryPage(name) {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });

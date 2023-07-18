@@ -8,13 +8,11 @@ function getUser() {
     url: "http://localhost:3000/profile/email/" + localUser.email,
     method: "GET",
     success: function (response) {
-      console.log("Response User: ", response);
       localUser = response;
       initializedProfileHeader();
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -24,7 +22,6 @@ function fetchGame(gameId, categoryName) {
     url: "http://localhost:3000/game/" + gameId,
     method: "GET",
     success: function (response) {
-      console.log("Response fetchGame: ", response);
       if (!response) {
         return;
       }
@@ -80,7 +77,6 @@ function fetchGame(gameId, categoryName) {
       return response;
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -91,17 +87,14 @@ function fetchWishList(wishListId) {
     url: "http://localhost:3000/wishList/" + wishListId,
     method: "GET",
     success: function (response) {
-      console.log("WishList response: ", response);
       // Perform any additional actions with the response data here
       for (let i = 0; i < response.games.length; i++) {
-        console.log(response.games[i]);
         if (response) {
           fetchGame(response.games[i], "WishList");
         }
       }
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -232,7 +225,6 @@ function sendToGamePage(id) {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -252,64 +244,15 @@ function sendToCategoryPage(name) {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
 }
 
 function sendToSearchPage() {
-  // let searchBarValue = $("#searchBar").val();
-  // if (searchBarValue == null || searchBarValue == "") {
-  //   window.location.href = "SearchPage.html";
-  // } else {
-  //   const encodedSearch = encodeURIComponent(JSON.stringify(searchBarValue));
-  //   window.location.href = "SearchPage.html?game=" + encodedSearch;
-  // }
   window.location.href = "SearchPage.html";
 }
 
 $(document).ready(function () {
   getUser();
 });
-
-/*
-    <div class="container" style="max-width: 80vw; margin-bottom: 2rem">
-      <h2 class="text-center text-white">All Games Owned</h2>
-      <div
-        class="row"
-        style="border-style: solid; border-color: var(--bs-gray-500)"
-      >
-        <div
-          class="col-md-12 text-bg-secondary d-flex justify-content-between"
-          style="
-            padding-right: 0px;
-            padding-left: 0px;
-            margin-bottom: 0.5rem;
-            border-color: var(--bs-red);
-          "
-        >
-          <div class="d-flex d-lg-flex flex-wrap">
-            <img
-              class="img-fluid"
-              src="/assets/img/ApexLegendsFeaturedMain.jpg"
-              width="100vw"
-              height="100vh"
-              style="margin-right: 0.3rem"
-            /><span class="text-capitalize fw-bold align-self-center"
-              >Apex Legends</span
-            >
-          </div>
-          <div class="d-flex d-lg-flex align-self-center">
-            <button
-              class="btn btn-dark border rounded-pill border-dark"
-              type="button"
-              style="margin-right: 0.5rem"
-            >
-              Game Page
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-*/

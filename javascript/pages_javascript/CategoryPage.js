@@ -6,8 +6,6 @@ const encodedGame = params.get("category");
 // Decode the encoded game object and parse it as JSON
 const categoryName = JSON.parse(decodeURIComponent(encodedGame));
 
-// Use the game object for further processing
-console.log("URL Params response: ", categoryName);
 /*END Take the Params from the url */
 
 /*Start Top Carousel */
@@ -118,7 +116,6 @@ function getPublishers(index) {
 
 /* Start middle carousel */
 function addItemForMiddleCarousel(gamesArray) {
-  console.log("Games Array :", gamesArray);
   try {
     for (let i = 0; i < gamesArray.length; i += 4) {
       // look at this ->  const subArray = gamesArray.slice(i, Math.min(i + 4, gamesArray.length)); // Validation added here
@@ -328,7 +325,6 @@ function getCategoryByName(name) {
     },
     error: function (xhr, status, error) {
       // Handle the error
-      console.log("AJAX request failed: " + error);
     },
   });
 }
@@ -339,7 +335,6 @@ function fetchGames() {
     type: "GET",
     success: function (response) {
       // Handle the successful response
-      console.log("FetchGames Response: ", response);
       return response.map((game) => {
         addItemListBottom(
           game.backGroundImage,
@@ -351,7 +346,6 @@ function fetchGames() {
     },
     error: function (xhr, status, error) {
       // Handle the error
-      console.log("AJAX request failed: " + error);
     },
   });
 }
@@ -361,14 +355,11 @@ function fetchGame(gameId) {
     url: "http://localhost:3000/game/" + gameId,
     method: "GET",
     success: function (response) {
-      console.log(response);
-      //   window.location.href = "http://localhost:3000/game/" + gameId;
       const encodedGame = encodeURIComponent(JSON.stringify(response));
       window.location.href = "GamePage.html?game=" + encodedGame;
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -385,20 +376,12 @@ function sendToCategoryPage(name) {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
 }
 
 function sendToSearchPage() {
-  // let searchBarValue = $("#searchBar").val();
-  // if (searchBarValue == null || searchBarValue == "") {
-  //   window.location.href = "SearchPage.html";
-  // } else {
-  //   const encodedSearch = encodeURIComponent(JSON.stringify(searchBarValue));
-  //   window.location.href = "SearchPage.html?game=" + encodedSearch;
-  // }
   window.location.href = "SearchPage.html";
 }
 

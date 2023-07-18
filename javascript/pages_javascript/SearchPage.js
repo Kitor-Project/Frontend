@@ -129,12 +129,10 @@ function fetchGame(gameId) {
     url: "http://localhost:3000/game/" + gameId,
     method: "GET",
     success: function (response) {
-      console.log(response);
       const encodedGame = encodeURIComponent(JSON.stringify(response));
       window.location.href = "GamePage.html?game=" + encodedGame;
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
     },
   });
 }
@@ -144,7 +142,6 @@ function fetchGames() {
     url: "http://localhost:3000/game",
     type: "GET",
     success: function (response) {
-      console.log("FetchGames Response: ", response);
       response.forEach((game) => {
         addItemListBottom(
           game.backGroundImage,
@@ -158,7 +155,6 @@ function fetchGames() {
       sortItemsByPrice(sortDirection);
     },
     error: function (xhr, status, error) {
-      console.log("AJAX request failed: " + error);
     },
   });
 }
@@ -178,7 +174,6 @@ function sendToCategoryPage(name) {
       window.location.href = "CategoryPage.html?category=" + encodedGame;
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
     },
   });
 }
