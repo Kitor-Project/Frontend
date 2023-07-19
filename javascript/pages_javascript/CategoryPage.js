@@ -71,19 +71,19 @@ function addItemCarousel(gamesArray, categoryName) {
     // on click fetch the game data from the server and redirect to the game page.
     $newCarouselItem.click(function () {
       const gameId = $(this).data("game-id");
-      fetchGame(gameId);
+      fetchGame(gameId); // takes a game from DB
     });
-
+    //add an indactor ( white line)
     if ($("#headerCarousel").children().length == 0) {
       addIndicatorToTheCarousel(gamesArray.length, 1);
       $newCarouselItem.addClass("active");
     }
-
+    // push the game item to the carousel
     $("#headerCarousel").append($newCarouselItem);
   }
 }
 
-// add the indicators to the header carousel.
+// create the indicators to the header carousel.
 function addIndicatorToTheCarousel(numberOfItems, carouselId) {
   const newCarouselItem = [];
   for (let i = 0; i < numberOfItems; i++) {
@@ -114,7 +114,7 @@ function getPublishers(index) {
 
 /* End Top Carousel */
 
-/* Start middle carousel */
+/* Start middle carousel (special offers) */
 function addItemForMiddleCarousel(gamesArray) {
   try {
     for (let i = 0; i < gamesArray.length; i += 4) {
@@ -242,9 +242,9 @@ function addItemForMiddleCarousel(gamesArray) {
           </div>
         </div>
         `;
-      const $newCarouselItem = $(newCarouselItem);
+      const $newCarouselItem = $(newCarouselItem); // convert HTML to Jquery
 
-      $("#middleCarousel").append($newCarouselItem);
+      $("#middleCarousel").append($newCarouselItem); // add the gmae to the carusel
 
       $("#middleCarousel").children().first().addClass("active");
     }
@@ -328,7 +328,7 @@ function getCategoryByName(name) {
     },
   });
 }
-
+// takes all the games data from DB and add them to All games section
 function fetchGames() {
   $.ajax({
     url: "http://localhost:3000/game",
@@ -349,7 +349,7 @@ function fetchGames() {
     },
   });
 }
-
+// transfers me to the game page ( when click a button or on a pic)
 function fetchGame(gameId) {
   $.ajax({
     url: "http://localhost:3000/game/" + gameId,
@@ -366,6 +366,8 @@ function fetchGame(gameId) {
 }
 
 /*End Bottom List */
+
+// transfer us to a category page when we choose one from the categories tab.  
 function sendToCategoryPage(name) {
   $.ajax({
     url: "http://localhost:3000/category/" + name,
@@ -384,7 +386,7 @@ function sendToCategoryPage(name) {
 function sendToSearchPage() {
   window.location.href = "SearchPage.html";
 }
-
+ //
 $(document).ready(function () {
   fetchGames();
   addItemCarousel(categoryName.games, categoryName.name);

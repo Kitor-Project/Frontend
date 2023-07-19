@@ -1,3 +1,4 @@
+//all the JS files uses auth.js function for validation purposes
 let user = JSON.parse(localStorage.getItem("user"));
 checkUser();
 

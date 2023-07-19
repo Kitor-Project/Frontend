@@ -206,6 +206,7 @@ async function addToCart(id) {
     alert("You must be logged in to add to cart");
     return;
   }
+  // take cart item from the cookie
   let cart = localStorage.getItem("cart");
 
   if (cart) {
@@ -228,15 +229,17 @@ async function addToCart(id) {
 /* start add to wish list */
 async function addToWishList(id) {
   if (!userGamePage) {
-    alert("You must be logged in to add to cart");
+    alert("You must be logged in to add an item to wishlist");
     return;
   }
-  let newUserTest = await getUserGamePage();
 
+  let newUserTest = await getUserGamePage();
+// if the user dont have a wishlist , we need to create a new one 
   if (newUserTest.wishList.length == 0) {
     createWishList(newUserTest._id, id);
     return;
   }
+  // if we already had a wishlist: update
   let wishListObject = await getWishList(newUserTest.wishList[0]);
   updateWishList(newUserTest.wishList[0], wishListObject, id);
 }

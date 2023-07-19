@@ -82,7 +82,7 @@ function editGame(id) {
   $("#gameEditPrice").val(game.price);
 
   $("#gameEditForm").submit(function (e) {
-    e.preventDefault();
+    e.preventDefault(); //dont refresh
     let name = $("#gameEditName").val();
     let price = $("#gameEditPrice").val();
     $.ajax({
@@ -190,6 +190,9 @@ function sendToSearchPage() {
   window.location.href = "SearchPage.html";
 }
 
+//show statistic - button:
+
+//start create first graph - average amount of purchases per month
 function fetchTotalNumberOfPurchase() {
   if (!user.email) {
     alert("You are not admin.");
@@ -200,7 +203,7 @@ function fetchTotalNumberOfPurchase() {
       url: "http://localhost:3000/statistic/totalNumberOfPurchasesPerMonth",
       dataType: "json",
       success: function (data) {
-        drawChart(data.months, data.totals);
+        drawChart(data.months, data.totals); //actually drawing it 
       },
       error: function (xhr, status, error) {
         console.error(error);
@@ -274,7 +277,10 @@ function drawChart(months, totals) {
 
   svg.append("g").attr("class", "y axis").call(yAxis);
 }
+//end create first graph - average amount of purchases per month
 
+
+//start create second graph - number of purchases per month
 function fetchCumulativeAmountOfPurchasesPerMonth() {
   if (!user.email) {
     alert("You are not admin.");
@@ -383,6 +389,8 @@ function fetchCategory(name) {
     });
   });
 }
+//end create second graph - number of purchases per month
+//show statistic - button - end
 
 async function addNewGame() {
   $("#addNewGame").submit(async function (event) {
