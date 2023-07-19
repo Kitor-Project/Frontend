@@ -34,7 +34,6 @@ function getUser() {
     method: "GET",
     success: function (response) {
       user = response;
-      console.log("Response from GetUser: ", response);
       if (user.isAdmin) {
         $(".adminNavbar").removeClass("d-none");
       }
@@ -48,7 +47,6 @@ function getUser() {
       // Perform any additional actions with the response data here
     },
     error: function (xhr) {
-      console.log(xhr.responseText);
       // Handle the error
     },
   });
@@ -63,7 +61,6 @@ function logOut() {
     type: "POST",
     success: function (response) {
       // Handle the successful response from the server
-      console.log(response);
     },
   });
   window.location.href = "HomePage.html";
@@ -94,7 +91,6 @@ function loginForm() {
       data: data,
       success: function (response) {
         // Handle the successful response from the server
-        console.log("login: ", response);
         if (response == "OK") {
           localStorage.setItem("user", JSON.stringify({ email: email }));
           window.location.href = "HomePage.html";
@@ -144,7 +140,6 @@ function signUpForm() {
       data: data,
       success: function (response) {
         // Handle the successful response from the server
-        console.log("login: ", response);
         if (response == "OK") {
           localStorage.setItem("user", JSON.stringify({ email: email }));
           window.location.href = "HomePage.html";
