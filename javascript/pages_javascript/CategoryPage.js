@@ -315,7 +315,7 @@ function addItemListBottom(backGroundImage, name, price, id) {
 
 function getCategoryByName(name) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com//category/" + name,
+    url: "https://kitur-front-project.onrender.com/category/" + name,
     type: "GET",
     success: function (response) {
       // Handle the successful response
@@ -331,7 +331,7 @@ function getCategoryByName(name) {
 // takes all the games data from DB and add them to All games section
 function fetchGames() {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com//game",
+    url: "https://kitur-front-project.onrender.com/game",
     type: "GET",
     success: function (response) {
       // Handle the successful response
@@ -352,7 +352,7 @@ function fetchGames() {
 // transfers me to the game page ( when click a button or on a pic)
 function fetchGame(gameId) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com//game/" + gameId,
+    url: "https://kitur-front-project.onrender.com/game/" + gameId,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
@@ -370,7 +370,7 @@ function fetchGame(gameId) {
 // transfer us to a category page when we choose one from the categories tab.
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com//category/" + name,
+    url: "https://kitur-front-project.onrender.com/category/" + name,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
