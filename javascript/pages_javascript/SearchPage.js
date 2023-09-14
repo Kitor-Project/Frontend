@@ -126,20 +126,19 @@ function sortItemsByValue(value) {
 
 function fetchGame(gameId) {
   $.ajax({
-    url: "http://localhost:3000/game/" + gameId,
+    url: "https://kitur-front-project.onrender.com//game/" + gameId,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
       window.location.href = "GamePage.html?game=" + encodedGame;
     },
-    error: function (xhr) {
-    },
+    error: function (xhr) {},
   });
 }
 
 function fetchGames() {
   $.ajax({
-    url: "http://localhost:3000/game",
+    url: "https://kitur-front-project.onrender.com//game",
     type: "GET",
     success: function (response) {
       response.forEach((game) => {
@@ -154,8 +153,7 @@ function fetchGames() {
 
       sortItemsByPrice(sortDirection);
     },
-    error: function (xhr, status, error) {
-    },
+    error: function (xhr, status, error) {},
   });
 }
 
@@ -167,14 +165,13 @@ function capitalizeFirstLetter(string) {
 
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "http://localhost:3000/category/" + name,
+    url: "https://kitur-front-project.onrender.com//category/" + name,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
       window.location.href = "CategoryPage.html?category=" + encodedGame;
     },
-    error: function (xhr) {
-    },
+    error: function (xhr) {},
   });
 }
 

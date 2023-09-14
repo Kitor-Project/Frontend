@@ -102,7 +102,7 @@ async function buyNow() {
     orderNumber: 9,
   };
   $.ajax({
-    url: "http://localhost:3000/order/",
+    url: "https://kitur-front-project.onrender.com//order/",
     method: "POST",
     contentType: "application/json", // Set the content type to JSON
     data: JSON.stringify({ order: order }),
@@ -144,8 +144,7 @@ function postToFacebook() {
     success: function (response) {
       alert("Post successfully sent!");
     },
-    error: function (xhr, status, error) {
-    },
+    error: function (xhr, status, error) {},
   });
 }
 
@@ -157,7 +156,7 @@ function moveToGamePageOnClick(id) {
 
 function fetchGame(gameId, boolean) {
   $.ajax({
-    url: "http://localhost:3000/game/" + gameId,
+    url: "https://kitur-front-project.onrender.com//game/" + gameId,
     method: "GET",
     success: function (response) {
       if (!response) {
@@ -190,7 +189,7 @@ function fetchGame(gameId, boolean) {
 
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "http://localhost:3000/category/" + name,
+    url: "https://kitur-front-project.onrender.com//category/" + name,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
@@ -205,7 +204,9 @@ function sendToCategoryPage(name) {
 
 async function getUserFromCartPage() {
   $.ajax({
-    url: "http://localhost:3000/profile/email/" + userCartPage.email,
+    url:
+      "https://kitur-front-project.onrender.com//profile/email/" +
+      userCartPage.email,
     method: "GET",
     success: function (response) {
       userCartPage = response;

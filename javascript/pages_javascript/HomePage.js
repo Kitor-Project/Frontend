@@ -5,7 +5,7 @@ function sendToSearchPage() {
 // /*Start first carosuel */
 function getCategoryByName(name) {
   $.ajax({
-    url: "http://localhost:3000/category/" + name,
+    url: "https://kitur-front-project.onrender.com//category/" + name,
     type: "GET",
     success: function (response) {
       // Handle the successful response
@@ -315,7 +315,7 @@ function addItemList(headerImageSource, title, price, id) {
 
 function fetchGame(gameId) {
   $.ajax({
-    url: "http://localhost:3000/game/" + gameId,
+    url: "https://kitur-front-project.onrender.com//game/" + gameId,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
@@ -330,7 +330,7 @@ function fetchGame(gameId) {
 
 function fetchGames() {
   $.ajax({
-    url: "http://localhost:3000/game",
+    url: "https://kitur-front-project.onrender.com//game",
     type: "GET",
     success: function (response) {
       // Handle the successful response
@@ -346,7 +346,7 @@ function fetchGames() {
 
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "http://localhost:3000/category/" + name,
+    url: "https://kitur-front-project.onrender.com//category/" + name,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
@@ -369,7 +369,7 @@ function initMap() {
 
   // Load points from the database
   $.ajax({
-    url: "http://localhost:3000/point",
+    url: "https://kitur-front-project.onrender.com//point",
     method: "GET",
     success: function (data) {
       data.forEach(function (point) {

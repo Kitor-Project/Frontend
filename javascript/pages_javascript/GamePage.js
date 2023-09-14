@@ -234,7 +234,7 @@ async function addToWishList(id) {
   }
 
   let newUserTest = await getUserGamePage();
-// if the user dont have a wishlist , we need to create a new one 
+  // if the user dont have a wishlist , we need to create a new one
   if (newUserTest.wishList.length == 0) {
     createWishList(newUserTest._id, id);
     return;
@@ -246,7 +246,7 @@ async function addToWishList(id) {
 
 async function createWishList(id, gameId) {
   $.ajax({
-    url: "http://localhost:3000/wishList/",
+    url: "https://kitur-front-project.onrender.com//wishList/",
     method: "POST",
     data: {
       user: id,
@@ -265,7 +265,7 @@ async function createWishList(id, gameId) {
 
 async function updateWishList(id, wishListObject, newGameId) {
   $.ajax({
-    url: "http://localhost:3000/wishList/",
+    url: "https://kitur-front-project.onrender.com//wishList/",
     method: "PATCH",
     data: {
       id: id,
@@ -285,7 +285,7 @@ async function updateWishList(id, wishListObject, newGameId) {
 function getWishList(id) {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: "http://localhost:3000/wishlist/" + id,
+      url: "https://kitur-front-project.onrender.com//wishlist/" + id,
       method: "GET",
       success: function (response) {
         resolve(response); // Resolve the promise with the response
@@ -308,7 +308,9 @@ function getWishList(id) {
 async function getUserGamePage() {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: "http://localhost:3000/profile/email/" + userGamePage.email,
+      url:
+        "https://kitur-front-project.onrender.com//profile/email/" +
+        userGamePage.email,
       method: "GET",
       success: function (response) {
         resolve(response); // Resolve the promise with the response
@@ -339,7 +341,7 @@ function getPublishers() {
 
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "http://localhost:3000/category/" + name,
+    url: "https://kitur-front-project.onrender.com//category/" + name,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));

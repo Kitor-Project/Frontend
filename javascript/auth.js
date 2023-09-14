@@ -31,7 +31,8 @@ function checkUser() {
 
 function getUser() {
   $.ajax({
-    url: "http://localhost:3000/profile/email/" + user.email,
+    url:
+      "https://kitur-front-project.onrender.com//profile/email/" + user.email,
     method: "GET",
     success: function (response) {
       user = response;
@@ -58,7 +59,7 @@ function logOut() {
   localStorage.removeItem("user");
 
   $.ajax({
-    url: "http://localhost:3000/logout",
+    url: "https://kitur-front-project.onrender.com//logout",
     type: "POST",
     success: function (response) {
       // Handle the successful response from the server
@@ -87,7 +88,7 @@ function loginForm() {
 
     // Send the AJAX request
     $.ajax({
-      url: "http://localhost:3000/login",
+      url: "https://kitur-front-project.onrender.com//login",
       type: "POST",
       data: data,
       success: function (response) {
@@ -136,7 +137,7 @@ function signUpForm() {
 
     // Send the AJAX request
     $.ajax({
-      url: "http://localhost:3000/register",
+      url: "https://kitur-front-project.onrender.com//register",
       type: "POST",
       data: data,
       success: function (response) {

@@ -98,7 +98,6 @@ async function removeFromWishList(gameId) {
     }
   }
 
-
   let finishWishList = "";
   for (let i = 0; i < wishListPage.games.length; i++) {
     if (i == wishListPage.games.length - 1) {
@@ -121,7 +120,7 @@ async function removeFromWishList(gameId) {
 
 async function updateWishList(id, wishListPage) {
   $.ajax({
-    url: "http://localhost:3000/wishList/",
+    url: "https://kitur-front-project.onrender.com//wishList/",
     method: "PATCH",
     data: wishListPage,
     data: wishListPage,
@@ -139,7 +138,7 @@ async function updateWishList(id, wishListPage) {
 async function getWishList(id) {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: "http://localhost:3000/wishlist/" + id,
+      url: "https://kitur-front-project.onrender.com//wishlist/" + id,
       method: "GET",
       success: function (response) {
         resolve(response); // Resolve the promise with the response
@@ -167,10 +166,10 @@ function moveToGamePageOnClick(id) {
 
 function fetchGame(gameId, boolean) {
   $.ajax({
-    url: "http://localhost:3000/game/" + gameId,
+    url: "https://kitur-front-project.onrender.com//game/" + gameId,
     method: "GET",
     success: function (response) {
-      //   window.location.href = "http://localhost:3000/game/" + gameId;
+      //   window.location.href = "https://kitur-front-project.onrender.com//game/" + gameId;
       if (!response) {
         return;
       }
@@ -195,7 +194,9 @@ function fetchGame(gameId, boolean) {
 
 function getUserFromWishlistPage() {
   $.ajax({
-    url: "http://localhost:3000/profile/email/" + userWishListPage.email,
+    url:
+      "https://kitur-front-project.onrender.com//profile/email/" +
+      userWishListPage.email,
     method: "GET",
     success: function (response) {
       userWishListPage = response;
@@ -207,7 +208,8 @@ function getUserFromWishlistPage() {
         for (let i = 0; i < userWishListPage.wishList.length; i++) {
           $.ajax({
             url:
-              "http://localhost:3000/wishList/" + userWishListPage.wishList[i],
+              "https://kitur-front-project.onrender.com//wishList/" +
+              userWishListPage.wishList[i],
             method: "GET",
             success: function (response) {
               for (let j = 0; j < response.games.length; j++) {
@@ -232,7 +234,7 @@ function getUserFromWishlistPage() {
 
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "http://localhost:3000/category/" + name,
+    url: "https://kitur-front-project.onrender.com//category/" + name,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));

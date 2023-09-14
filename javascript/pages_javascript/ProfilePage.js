@@ -5,7 +5,9 @@ if (!localUser) {
 getUser();
 function getUser() {
   $.ajax({
-    url: "http://localhost:3000/profile/email/" + localUser.email,
+    url:
+      "https://kitur-front-project.onrender.com//profile/email/" +
+      localUser.email,
     method: "GET",
     success: function (response) {
       localUser = response;
@@ -19,7 +21,7 @@ function getUser() {
 }
 function fetchGame(gameId, categoryName) {
   $.ajax({
-    url: "http://localhost:3000/game/" + gameId,
+    url: "https://kitur-front-project.onrender.com//game/" + gameId,
     method: "GET",
     success: function (response) {
       if (!response) {
@@ -84,7 +86,7 @@ function fetchGame(gameId, categoryName) {
 
 function fetchWishList(wishListId) {
   $.ajax({
-    url: "http://localhost:3000/wishList/" + wishListId,
+    url: "https://kitur-front-project.onrender.com//wishList/" + wishListId,
     method: "GET",
     success: function (response) {
       // Perform any additional actions with the response data here
@@ -214,7 +216,7 @@ function addItemList(headerImageSource, title, price, id) {
 
 function sendToGamePage(id) {
   $.ajax({
-    url: "http://localhost:3000/game/" + id,
+    url: "https://kitur-front-project.onrender.com//game/" + id,
     method: "GET",
     success: function (response) {
       if (!response) {
@@ -233,7 +235,7 @@ function sendToGamePage(id) {
 
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "http://localhost:3000/category/" + name,
+    url: "https://kitur-front-project.onrender.com//category/" + name,
     method: "GET",
     success: function (response) {
       if (!response) {
