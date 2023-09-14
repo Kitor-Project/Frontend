@@ -86,7 +86,7 @@ function editGame(id) {
     let name = $("#gameEditName").val();
     let price = $("#gameEditPrice").val();
     $.ajax({
-      url: "https://kitur-front-project.onrender.com/game/",
+      url: "https://kitur-project.onrender.com/game/",
       type: "PATCH",
       contentType: "application/json", // Set the content type to JSON
       data: JSON.stringify({
@@ -118,7 +118,7 @@ function removeGame(id) {
     window.location.href = "HomePage.html";
   }
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/game/",
+    url: "https://kitur-project.onrender.com/game/",
     type: "DELETE",
     data: {
       id: id,
@@ -138,7 +138,7 @@ function removeGame(id) {
 const allGamesArray = [];
 function fetchGames() {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/game",
+    url: "https://kitur-project.onrender.com/game",
     type: "GET",
     success: function (response) {
       // Handle the successful response
@@ -155,10 +155,10 @@ function fetchGames() {
 
 function fetchGame(gameId, boolean) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/game/" + gameId,
+    url: "https://kitur-project.onrender.com/game/" + gameId,
     method: "GET",
     success: function (response) {
-      //   window.location.href = "https://kitur-front-project.onrender.com/game/" + gameId;
+      //   window.location.href = "https://kitur-project.onrender.com/game/" + gameId;
       if (boolean == false) {
         const encodedGame = encodeURIComponent(JSON.stringify(response));
         window.location.href = "GamePage.html?game=" + encodedGame;
@@ -173,7 +173,7 @@ function fetchGame(gameId, boolean) {
 
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/category/" + name,
+    url: "https://kitur-project.onrender.com/category/" + name,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
@@ -200,7 +200,7 @@ function fetchTotalNumberOfPurchase() {
   }
   $(document).ready(function () {
     $.ajax({
-      url: "https://kitur-front-project.onrender.com/statistic/totalNumberOfPurchasesPerMonth",
+      url: "https://kitur-project.onrender.com/statistic/totalNumberOfPurchasesPerMonth",
       dataType: "json",
       success: function (data) {
         drawChart(data.months, data.totals); //actually drawing it
@@ -286,7 +286,7 @@ function fetchCumulativeAmountOfPurchasesPerMonth() {
     window.location.href = "HomePage.html";
   }
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/statistic/cumulativeAmountOfPurchasesPerMonth",
+    url: "https://kitur-project.onrender.com/statistic/cumulativeAmountOfPurchasesPerMonth",
     dataType: "json",
     success: function (data) {
       drawSecondChart(data.months, data.averages);
@@ -377,7 +377,7 @@ function categoryTest(name) {
 function fetchCategory(name) {
   return new Promise(function (resolve, reject) {
     $.ajax({
-      url: "https://kitur-front-project.onrender.com/category/" + name,
+      url: "https://kitur-project.onrender.com/category/" + name,
       dataType: "json",
       success: function (data) {
         resolve(data._id); // Resolve the promise with the _id value
@@ -434,7 +434,7 @@ async function addNewGame() {
       };
 
       $.ajax({
-        url: "https://kitur-front-project.onrender.com/game",
+        url: "https://kitur-project.onrender.com/game",
         type: "POST",
         data: game,
         success: function (data) {
@@ -464,8 +464,7 @@ async function addNewGame() {
 async function getUserFromManagerPage() {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url:
-        "https://kitur-front-project.onrender.com/profile/email/" + user.email,
+      url: "https://kitur-project.onrender.com/profile/email/" + user.email,
       method: "GET",
       success: function (response) {
         if (user.isAdmin != true) {

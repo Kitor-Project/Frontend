@@ -126,7 +126,7 @@ function sortItemsByValue(value) {
 
 function fetchGame(gameId) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/game/" + gameId,
+    url: "https://kitur-project.onrender.com/game/" + gameId,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
@@ -138,7 +138,7 @@ function fetchGame(gameId) {
 
 function fetchGames() {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/game",
+    url: "https://kitur-project.onrender.com/game",
     type: "GET",
     success: function (response) {
       response.forEach((game) => {
@@ -165,7 +165,7 @@ function capitalizeFirstLetter(string) {
 
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/category/" + name,
+    url: "https://kitur-project.onrender.com/category/" + name,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));

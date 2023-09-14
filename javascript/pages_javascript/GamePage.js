@@ -246,7 +246,7 @@ async function addToWishList(id) {
 
 async function createWishList(id, gameId) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/wishList/",
+    url: "https://kitur-project.onrender.com/wishList/",
     method: "POST",
     data: {
       user: id,
@@ -265,7 +265,7 @@ async function createWishList(id, gameId) {
 
 async function updateWishList(id, wishListObject, newGameId) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/wishList/",
+    url: "https://kitur-project.onrender.com/wishList/",
     method: "PATCH",
     data: {
       id: id,
@@ -285,7 +285,7 @@ async function updateWishList(id, wishListObject, newGameId) {
 function getWishList(id) {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: "https://kitur-front-project.onrender.com/wishlist/" + id,
+      url: "https://kitur-project.onrender.com/wishlist/" + id,
       method: "GET",
       success: function (response) {
         resolve(response); // Resolve the promise with the response
@@ -309,7 +309,7 @@ async function getUserGamePage() {
   return new Promise((resolve, reject) => {
     $.ajax({
       url:
-        "https://kitur-front-project.onrender.com/profile/email/" +
+        "https://kitur-project.onrender.com/profile/email/" +
         userGamePage.email,
       method: "GET",
       success: function (response) {
@@ -341,7 +341,7 @@ function getPublishers() {
 
 function sendToCategoryPage(name) {
   $.ajax({
-    url: "https://kitur-front-project.onrender.com/category/" + name,
+    url: "https://kitur-project.onrender.com/category/" + name,
     method: "GET",
     success: function (response) {
       const encodedGame = encodeURIComponent(JSON.stringify(response));
